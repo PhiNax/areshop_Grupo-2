@@ -18,12 +18,17 @@ const controller = {
         res.render('users/cart');
     },
 
-    // Login
+    // Login render login form
     login: (req, res) => {
         res.render('users/login');
     },
+    // Log out user and destroy the session information
+    logout: (req, res) => {
+        req.session.destroy();
+        return res.redirect('/');
+    },
 
-    // Register
+    // Register render register form
     register: (req, res) => {
         res.render('users/register');
     },
@@ -47,6 +52,7 @@ const controller = {
             try {
                 users.push(newUser);
                 fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 4), { encoding: "utf-8" });
+                req.session.userLogged = newUser.email;
                 res.redirect('/');
             }
             catch (err) {
