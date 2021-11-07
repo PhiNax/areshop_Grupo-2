@@ -54,7 +54,7 @@ const controller = {
 
             }
         } else {
-            res.render('users/register', { errors: errors.array(), old: req.body });
+            res.render('users/register', { errors: errors.mapped(), old: req.body });
         }
 
 

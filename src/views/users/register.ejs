@@ -9,35 +9,38 @@
 <body class="body__register">
   <%- include('../partials/header_register') -%>
     <main class="main__register">
-      <div class="titulo-registro">Registrate</div>
+
       <form action="/createuser" method="POST" class="registro-form" enctype="multipart/form-data">
+        <div class="titulo-registro">Registrate</div>
         <% if (locals.errors) { %>
-          <%= console.log(locals.errors) %>
-            <p class="feedback">
-              <%= locals.errors.msg %>
+          <% for( let error in errors ) { %>
+            <p class="form__errors"><i class="fas fa-exclamation-triangle form__alert"></i>
+              <%= errors[error].msg %>
             </p>
             <% } %>
-              <div>
-                <label class="nombre">NOMBRE</label>
-                <input type="text" name="name" value="<%= locals.old && old.name %>">
-              </div>
-              <div>
-                <label class="nickname">NICKNAME</label>
-                <input type="text" name="nickname" value="<%= locals.old && old.nickname %>">
-              </div>
-              <div>
-                <label class="email">EMAIL</label>
-                <input type="email" name="email" value="<%= locals.old && old.email %>">
-              </div>
-              <div>
-                <label class="password">PASSWORD</label>
-                <input type="password" name="password">
-              </div>
-              <div>
-                <label for="userImage">Avatar</label>
-                <input type="file" name="userimage">
-              </div>
-              <button type="submit" name="registrar">REGISTRAR</button>
+              <% } %>
+
+                <div>
+                  <label for="name" class="form__label">NOMBRE</label>
+                  <input type="text" name="name" value="<%= locals.old && old.name %>">
+                </div>
+                <div>
+                  <label for="nickname" class="form__label">NICKNAME</label>
+                  <input type="text" name="nickname" value="<%= locals.old && old.nickname %>">
+                </div>
+                <div>
+                  <label for="email" class="form__label">EMAIL</label>
+                  <input type="email" name="email" value="<%= locals.old && old.email %>">
+                </div>
+                <div>
+                  <label for="password" class="form__label">PASSWORD</label>
+                  <input type="password" name="password">
+                </div>
+                <div>
+                  <label for="userImage" class="form__label">Avatar</label>
+                  <input type="file" name="userimage">
+                </div>
+                <button type="submit" name="registrar">REGISTRAR</button>
       </form>
     </main>
     <%- include('../partials/footer') -%>
