@@ -4,8 +4,7 @@ const express = require('express');
 const path = require('path');
 // Call express session module
 const session = require('express-session');
-//Call cookies
-const cookies = require('cookie-parser');
+
 // Call middleware to check if there a users allready logged
 const userLoggedMiddleware = require('./middleware/userLoggedMiddleware');
 
@@ -50,7 +49,6 @@ app.use(session({
     cookie: { maxAge: 60000 }
 }));
 
-app.use(cookies());
 app.use(userLoggedMiddleware);
 
 // Use Routes

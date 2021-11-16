@@ -1,3 +1,4 @@
+
 const fs = require('fs')
 const path = require('path');
 const usersFilePath = path.join(__dirname, '../database/users.json');
@@ -21,6 +22,8 @@ function userLoggedMiddleware(req, res, next) {
 	}
 
 	next();
+
+
 }
 
 module.exports = userLoggedMiddleware;

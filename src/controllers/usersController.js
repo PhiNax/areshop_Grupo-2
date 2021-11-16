@@ -8,7 +8,6 @@ const { validationResult } = require('express-validator');
 // Call Bcrypt for encrypt passwords
 const bcrypt = require('bcryptjs');
 const { v4: uuidv4 } = require('uuid');
-//Call models
 
 const usersFilePath = path.join(__dirname, '../database/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
@@ -18,6 +17,7 @@ const controller = {
     cart: (req, res) => {
         res.render('users/cart');
     },
+
 
     // Register render register form
     register: (req, res) => {
@@ -53,8 +53,6 @@ const controller = {
         } else {
             res.render('users/register', { errors: errors.mapped(), old: req.body });
         }
-
-
     },
      // Login render login form
      login: (req, res) => {
@@ -107,4 +105,9 @@ const controller = {
         }
 };
 
- module.exports = controller; 
+
+
+    }
+};
+module.exports = controller;
+
