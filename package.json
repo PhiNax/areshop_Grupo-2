@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/PhiNax/areshop_Grupo-2#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.5",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "fs": "^0.0.1-security",
@@ -27,7 +29,6 @@
     "nodemon": "^2.0.13",
     "path": "^0.12.7",
     "shortid": "^2.2.16",
-    "uuid": "^8.3.2",
-    "uuidv4": "^6.2.12"
+    "uuid": "^8.3.2"
   }
 }
