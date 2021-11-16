@@ -1,11 +1,28 @@
+
+const fs = require('fs')
+const path = require('path');
+const usersFilePath = path.join(__dirname, '../database/users.json');
+const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+
+
+
 function userLoggedMiddleware(req, res, next) {
-    res.locals.isLogged = false;
+	res.locals.isLogged = false;
 
-    if (req.session && req.session.userLogged) {
-        res.locals.isLogged = true;
-    }
+	let emailInCookie = req.cookies.userEmail;
+	let userFromCookie = users.find(user => user == emailInCookie);
 
-    next()
+	if (userFromCookie) {
+		req.session.userLogged = userFromCookie;
+	}
+
+	if (req.session.userLogged) {
+		res.locals.isLogged = true;
+		res.locals.userLogged = req.session.userLogged;
+	}
+
+	next();
+
 
 }
 

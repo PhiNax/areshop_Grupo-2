@@ -4,6 +4,7 @@ const express = require('express');
 const path = require('path');
 // Call express session module
 const session = require('express-session');
+
 // Call middleware to check if there a users allready logged
 const userLoggedMiddleware = require('./middleware/userLoggedMiddleware');
 
@@ -51,6 +52,7 @@ app.use(session({
 app.use(userLoggedMiddleware);
 
 // Use Routes
+
 // Main Routes
 app.use('/', mainRouter);
 // Users Routers
