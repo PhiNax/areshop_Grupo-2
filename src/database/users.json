@@ -38,6 +38,7 @@
         "password": "$2a$10$RzGWFEkJwajGAVv0uBB5xuWO1UsvGIPihN292NKF8XsHlh5U8pVWG",
         "userImage": "userimage-1637023016114-531807411-Edicion masiva.png"
     },
+    {
         "id": "84ee2739-6ac8-43b5-8cc1-5cc9a0aeb5b8",
         "name": "Jhon",
         "nickname": "Shogun",
@@ -60,6 +61,13 @@
         "email": "email@email.com",
         "password": "$2a$10$Q.DCtVWROwT51J64QwMG..hueLL0vlbGPl1JdJXER9Yue7T3qYn7q",
         "userImage": "userimage-1636308050117-900133266-velocidades.jpg"
-
+    },
+    {
+        "id": "66d5a150-42e5-45c8-91c4-0c71fbeb5b07",
+        "name": "Noe",
+        "nickname": "Noe",
+        "email": "no@no.com",
+        "password": "$2a$10$9wEaFEV6Y4qUYqr16XlH2.eoDtEJbsiRP/BjMIsxAyGkNNzO3d9sy",
+        "userImage": "userimage-1637026880666-275308169-pumbaa.png"
     }
 ]

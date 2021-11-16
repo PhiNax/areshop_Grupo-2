@@ -54,60 +54,56 @@ const controller = {
             res.render('users/register', { errors: errors.mapped(), old: req.body });
         }
     },
-     // Login render login form
-     login: (req, res) => {
-        res.render('user/login');
+    // Login render login form
+    login: (req, res) => {
+        res.render('users/login');
     },
     loginProcess: (req, res) => {
-		let userToLogin = users.find(user => user.email == req.body.email);
-        
-		if(userToLogin) {
-			let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
-			if (isOkThePassword) {
-				delete userToLogin.password;
-				req.session.userLogged = userToLogin;
+        let userToLogin = users.find(user => user.email == req.body.email);
 
-				if(req.body.remember_user == "on") {
-					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 200 })
-				}
+        if (userToLogin) {
+            let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
+            if (isOkThePassword) {
+                delete userToLogin.password;
+                req.session.userLogged = userToLogin;
 
-				return res.redirect('/profile');
-			} 
-			return res.render('users/login', {
-				errors: {
-					email: {
-						msg: 'Las credenciales son inválidas'
-					}
-				}
-			});
-		}
+                if (req.body.remember_user == "on") {
+                    res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 200 })
+                }
 
-		return res.render('users/login', {
-			errors: {
-				email: {
-					msg: 'Las credenciales son inválidas'
-				}
-			}
-		});
-	},
+                return res.redirect('/profile');
+            }
+            return res.render('users/login', {
+                errors: {
+                    email: {
+                        msg: 'Las credenciales son inválidas'
+                    }
+                }
+            });
+        }
+
+        return res.render('users/login', {
+            errors: {
+                email: {
+                    msg: 'Las credenciales son inválidas'
+                }
+            }
+        });
+    },
     profile: (req, res) => {
-		return res.render('userProfile', {
-			user: req.session.userLogged
-		});
-        
-	},
+        return res.render('userProfile', {
+            user: req.session.userLogged
+        });
+
+    },
 
     // Log out user and destroy the session information
-        logout: (req, res) => {
-            res.clearCookie('userEmail');
-            req.session.destroy();
-            return res.redirect('/login');
-        }
-};
-
-
-
+    logout: (req, res) => {
+        res.clearCookie('connect.sid');
+        req.session.destroy();
+        return res.redirect('/login');
     }
 };
+
 module.exports = controller;
 
