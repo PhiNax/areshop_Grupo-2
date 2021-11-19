@@ -6,6 +6,10 @@ const path = require('path');
 const session = require('express-session');
 
 const cookies = require('cookie-parser');
+// Call dotenv module to protect environment variables   
+require('dotenv').config()
+// Connect to DB
+require('./database/connectDB');
 
 // Call middleware to check if there a users allready logged
 const userLoggedMiddleware = require('./middleware/userLoggedMiddleware');
