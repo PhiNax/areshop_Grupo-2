@@ -70,7 +70,6 @@ const controller = {
                 if (req.body.remember_user == "on") {
                     res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 200 })
                 }
-
                 return res.redirect('/profile');
             }
             return res.render('users/login', {
