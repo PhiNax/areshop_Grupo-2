@@ -7,8 +7,8 @@
 </head>
 
 
-  <body class="body__login">  
-    <%- include('../partials/header_login') -%>
+<body class="body__login">
+  <%- include('../partials/header') -%>
 
     <main class="main__login">
       <div class="titulo-registro">Ingresar</div>
@@ -20,7 +20,7 @@
             <div>
               <%= errors.email.msg %>
             </div>
-          <% } %>
+            <% } %>
         </div>
         <div>
 
@@ -28,7 +28,7 @@
           <input type="password" name="password" placeholder="Password" autocomplete="current-password" class="relleno">
         </div>
         <div>
-          <label for="remember_user"> Recordar mi usuario </label> 
+          <label for="remember_user"> Recordar mi usuario </label>
           <input type="checkbox" name="remember_user">
 
         </div>

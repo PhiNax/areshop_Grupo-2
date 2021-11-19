@@ -14,14 +14,14 @@ const authMiddleware = require('../middleware/authMiddleware');
 const uploadAvatar = require('../middleware/multer');
 
 // Cart Details Route
-router.get('/cart', guestMiddleware, authMiddleware, usersController.cart);
+router.get('/cart', authMiddleware, usersController.cart);
 
 // Login Route
 router.get('/login', guestMiddleware, usersController.login);
 
 
 // Procesar el login
-router.post('/login',validateLogin, usersController.loginProcess);
+router.post('/login', validateLogin, usersController.loginProcess);
 
 // Logout
 router.get('/logout', usersController.logout);
