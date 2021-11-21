@@ -1,41 +1,35 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
-<head>
-  <%- include('../partials/head') -%>
-    <link rel="stylesheet" href="./css/login.css" type="text/css" />
-</head>
+<%- include('../partials/head') -%>
 
+  <body class="body__login">
+    <%- include('../partials/header') -%>
 
-<body class="body__login">
-  <%- include('../partials/header') -%>
+      <main class="main__login">
+        <form action="/login" method="POST" class="registro-form">
+          <div class="titulo-registro">Sign In</div>
+          <div>
+            <label class="email" for="email">Emil Address</label>
+            <input type="email" name="email" placeholder="Email" autocomplete="email" class="relleno">
+            <% if (locals.errors && errors.email) { %>
+              <div>
+                <%= errors.email.msg %>
+              </div>
+              <% } %>
+          </div>
+          <div>
+            <label class="password" for="password">Password</label>
+            <input type="password" name="password" placeholder="Password">
+          </div>
 
-    <main class="main__login">
-      <div class="titulo-registro">Ingresar</div>
-      <form action="/login" method="POST" class="registro-form">
-        <div>
-          <label class="email" for="email">EMAIL ADDRESS</label>
-          <input type="email" name="email" placeholder="Username" autocomplete="email" class="relleno">
-          <% if (locals.errors && errors.email) { %>
-            <div>
-              <%= errors.email.msg %>
-            </div>
-            <% } %>
-        </div>
-        <div>
+          <label for="rememberUser">Remember Me</label>
+          <input type="checkbox" name="rememberUser">
 
-          <label class="PASSWORD" for="password">PASSWORD</label>
-          <input type="password" name="password" placeholder="Password" autocomplete="current-password" class="relleno">
-        </div>
-        <div>
-          <label for="remember_user"> Recordar mi usuario </label>
-          <input type="checkbox" name="remember_user">
-
-        </div>
-        <button type="submit" name="button">SIGN IN</button>
-      </form>
-    </main>
-    <%- include('../partials/footer') -%>
-</body>
+          <button type="submit" name="login">SIGN IN</button>
+        </form>
+      </main>
+      <%- include('../partials/footer') -%>
+  </body>
 
 </html>
