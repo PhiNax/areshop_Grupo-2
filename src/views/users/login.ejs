@@ -7,11 +7,11 @@
     <%- include('../partials/header') -%>
 
       <main class="main__login">
-        <form action="/login" method="POST" class="registro-form">
-          <div class="titulo-registro">Sign In</div>
+        <form action="/user/login" method="POST" class="login-form">
+          <div class="form-title">Sign In</div>
           <div>
-            <label class="email" for="email">Emil Address</label>
-            <input type="email" name="email" placeholder="Email" autocomplete="email" class="relleno">
+            <label for="email" class="form__label">Emil Address</label>
+            <input type="email" name="email" placeholder="Email">
             <% if (locals.errors && errors.email) { %>
               <div>
                 <%= errors.email.msg %>
@@ -19,11 +19,11 @@
               <% } %>
           </div>
           <div>
-            <label class="password" for="password">Password</label>
+            <label for="password" class="form__label">Password</label>
             <input type="password" name="password" placeholder="Password">
           </div>
 
-          <label for="rememberUser">Remember Me</label>
+          <label for="rememberUser" class="form__label">Remember Me</label>
           <input type="checkbox" name="rememberUser">
 
           <button type="submit" name="login">SIGN IN</button>
