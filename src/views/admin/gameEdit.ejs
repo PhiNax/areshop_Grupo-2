@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head') -%>
+    <link rel="stylesheet" href="/css/create.css" type="text/css" />
+</head>
+
+<body class="body__create">
+  <%- include('../partials/header') -%>
+    <main class="main-form-edit">
+
+      <form action="/admin/update/<%= game.id %>?_method=PUT" method="POST" class="form-edit"
+        enctype="multipart/form-data">
+        <div class="form-edit-title">GAME EDIT</div>
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" name="name" value="<%= game.name%>" />
+        </div>
+        <div>
+          <label for="description">Description:</label>
+          <input type="text" name="description" value="<%= game.description%>" />
+        </div>
+        <div>
+          <label for="coverImage">Cover Image:</label>
+          <input type="file" name="coverImage" accept=".jpg,.png" />
+        </div>
+        <div>
+          <label for="rating">Rating:</label>
+          <input type="text" name="rating" value="<%= game.rating%>">
+        </div>
+        <div>
+          <label>Price:</label>
+          <input type="text" name="price" value="<%= game.price%>" />
+        </div>
+        <div class="create-form-buttons">
+          <button type="submit" name="button">SAVE</button>
+          <button type="reset" name="button">RESET</button>
+        </div>
+      </form>
+      <form action="/admin/delete/<%= game.id %>?_method=DELETE" method="POST" class="form-delete">
+        <button type="submit">DELETE</button>
+      </form>
+    </main>
+    <%- include('../partials/footer') -%>
+</body>
+
+</html>

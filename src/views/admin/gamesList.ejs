@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head') -%>
+
+  <body>
+    <%- include('../partials/header') -%>
+      <main>
+        <div class="navbar-products">
+          <div><input type="search" /><button>Search</button></div>
+          <div>
+            <a href="/admin/create"><button>Create New Product</button></a>
+          </div>
+        </div>
+        <div>
+          <p>Products List</p>
+        </div>
+        <div class="cards__container">
+          <% game.forEach(function(game){ %>
+            <%- include('./gameCard', {game}) %>
+              <% }); %>
+        </div>
+      </main>
+      <%- include('../partials/footer') -%>
+  </body>
+
+</html>
