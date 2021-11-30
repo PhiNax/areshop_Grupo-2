@@ -1,4 +1,6 @@
 const { Game } = require('../database/connectDB');
+const { GameCategory } = require('../database/connectDB');
+const { GamePlatform } = require('../database/connectDB');
 
 const controller = {
 
@@ -18,18 +20,23 @@ const controller = {
     },
     // Create Method to store in DataBase
     store: async (req, res) => {
+
         // newGame catch data from request form to store in DataBase
         const newGame = {
             name: req.body.name,
             description: req.body.description,
             coverImage: req.file.filename,
             rating: req.body.rating,
-            price: req.body.price
+            price: req.body.price,
+            gamecategoryId: req.body.category,
+            gameplatformId: req.body.platform
         };
         try {
-            await Game.create(newGame)
+            await Game.create(newGame);
+            const createdGame = await Game.findOne({ include: [GameCategory, GamePlatform], where: { name: newGame.name } })
+
             // Render to the new game created page by ID
-            res.render('products/productsDetail', { game: newGame });
+            res.render('products/productsDetail', { game: createdGame });
         }
         catch (err) {
             throw new Error('Admin: Create New Game Failed => ' + err);
@@ -40,6 +47,7 @@ const controller = {
         const id = req.params.id;
         try {
             const game = await Game.findOne({
+                include: [GameCategory, GamePlatform],
                 where: {
                     id: id
                 }
@@ -61,7 +69,9 @@ const controller = {
             description: req.body.description,
             //coverImage: req.file.filename,
             rating: req.body.rating,
-            price: req.body.price
+            price: req.body.price,
+            category: req.body.category,
+            platform: req.body.platform
         };
         try {
             await Game.update({
@@ -69,7 +79,9 @@ const controller = {
                 description: updateGame.description,
                 //coverImage: updateGame.coverImage,
                 rating: updateGame.rating,
-                price: updateGame.price
+                price: updateGame.price,
+                gamecategoryId: updateGame.category,
+                gameplatformId: updateGame.platform,
             }, {
                 where: {
                     id: id

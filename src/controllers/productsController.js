@@ -1,4 +1,5 @@
 const { Game } = require('../database/connectDB');
+const { GameCategory } = require('../database/connectDB');
 
 const controller = {
 
@@ -8,6 +9,7 @@ const controller = {
 
         try {
             const game = await Game.findOne({
+                include: [GameCategory],
                 where: {
                     id: gameId
                 }
