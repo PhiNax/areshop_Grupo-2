@@ -40,7 +40,7 @@ body {
   align-items: center;
 }
 .card__item {
-  width: 120vw;
+  width: 70vw;
   background-color: #ddd;
   border-radius: 7px;
   box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
@@ -123,6 +123,7 @@ body {
     flex-flow: row nowrap;
   }
   .card__item {
+    width: 30vw;
     height: 180px;
   }
   .card__img {
