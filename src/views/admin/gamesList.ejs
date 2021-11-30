@@ -7,13 +7,17 @@
     <%- include('../partials/header') -%>
       <main>
         <div class="navbar-products">
-          <div><input type="search" /><button>Search</button></div>
+          <div>
+            <form action="/admin/search/" method="post">
+              <input type="search" name="search" placeholder="Search games" /><button type="submit">Search</button>
+            </form>
+          </div>
           <div>
             <a href="/admin/create"><button>Create New Product</button></a>
           </div>
         </div>
         <div>
-          <p>Products List</p>
+          <a href="/admin/"><button>Products List</button></a>
         </div>
         <div class="cards__container">
           <% game.forEach(function(game){ %>

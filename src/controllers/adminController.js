@@ -1,3 +1,4 @@
+const { Op } = require('sequelize');
 const { Game } = require('../database/connectDB');
 const { GameCategory } = require('../database/connectDB');
 const { GamePlatform } = require('../database/connectDB');
@@ -12,6 +13,26 @@ const controller = {
         }
         catch (err) {
             throw new Error('Admin: List all games: failed => ' + err);
+        }
+    },
+    // Search Games
+    search: async (req, res) => {
+        const searchInput = req.body.search;
+        console.log(searchInput);
+        try {
+            const game = await Game.findAll({
+                include: [GameCategory, GamePlatform],
+
+                where: {
+                    name: {
+                        [Op.like]: `%${searchInput}%`
+                    }
+                }
+            })
+            res.render('admin/gamesList', { game });
+        }
+        catch (err) {
+            throw new Error('Admin: Search games: failed => ' + err);
         }
     },
     // Create - Form to create view
