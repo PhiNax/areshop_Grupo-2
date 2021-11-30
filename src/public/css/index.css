@@ -2,6 +2,9 @@
 @import "register.css";
 @import "login.css";
 
+body {
+  font-family: Barlow, sans-serif;
+}
 /* START MAIN INDEX */
 .body__index {
   background-image: url(/img/background-img.jpg);
