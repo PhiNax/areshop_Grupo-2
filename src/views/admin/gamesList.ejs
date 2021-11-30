@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('../partials/head') -%>
+<%- include('../partials/head_admin') -%>
 
   <body>
     <%- include('../partials/header') -%>
-      <main>
+      <main class="main__dashboard">
         <div class="navbar-products">
           <div>
             <form action="/admin/search/" method="post">
@@ -15,11 +15,12 @@
           <div>
             <a href="/admin/create"><button>Create New Product</button></a>
           </div>
+          <div>
+            <a href="/admin/"><button>Products List</button></a>
+          </div>
         </div>
-        <div>
-          <a href="/admin/"><button>Products List</button></a>
-        </div>
-        <div class="cards__container">
+
+        <div class="dashboard__card__container">
           <% game.forEach(function(game){ %>
             <%- include('./gameCard', {game}) %>
               <% }); %>

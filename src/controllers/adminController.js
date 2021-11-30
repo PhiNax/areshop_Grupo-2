@@ -8,7 +8,7 @@ const controller = {
     // Show all games
     list: async (req, res) => {
         try {
-            const game = await Game.findAll({});
+            const game = await Game.findAll({ include: [GameCategory, GamePlatform] });
             res.render('admin/gamesList', { game });
         }
         catch (err) {
