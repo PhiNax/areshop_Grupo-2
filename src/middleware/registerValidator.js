@@ -1,3 +1,4 @@
+const path = require('path');
 // Call Express Validator module
 const { check } = require('express-validator');
 // Call User Model 
@@ -5,58 +6,45 @@ const { User } = require('../database/connectDB');
 
 const validateRegister = [
     check('name')
-        .notEmpty().withMessage('Completa tu nombre')
-        .isLength({ min: 3 }).withMessage('Tu nombre debe contener minimo 3 letras'),
+        .notEmpty().withMessage('Complete your name')
+        .isLength({ min: 3 }).withMessage('Your name must have at least 3 characters'),
 
     check('nickname')
-        .notEmpty().withMessage('Completa tu nickname')
-        .isLength({ min: 3 }).withMessage('Tu nickname debe contener minimo 3 letras')
-        .custom((value) => {
-            const nicknameUsed = User.findOne({
+        .notEmpty().withMessage('Complete your nickname')
+        .isLength({ min: 3 }).withMessage('Your nickname must have at least 3 characters')
+        .custom(async (value) => {
+            const nicknameUsed = await User.findOne({
                 where: {
                     nickname: value
                 }
             });
             if (nicknameUsed) {
-                throw new Error('Prueba con otro nickname');
+                throw new Error('Choose another nickname');
             }
 
             return true;
         }),
 
     check('email')
-        .notEmpty().withMessage('Completa tu email')
-        .isEmail().withMessage('Debes ingresar un email valido')
-        .custom((value) => {
-            const emailUsed = User.findOne({
+        .notEmpty().withMessage('Complete your email')
+        .isEmail().withMessage('Your email must be valid')
+        .custom(async (value) => {
+            const emailUsed = await User.findOne({
                 where: {
                     email: value
                 }
             });
 
             if (emailUsed) {
-                throw new Error('Prueba con otro email');
+                throw new Error('Choose another email');
             }
 
             return true;
         }),
 
     check('password')
-        .notEmpty().withMessage('Completa tu password')
-        .isLength({ min: 8 }).withMessage('La password debe contener minimo 8 caracteres'),
-
-    check('userimage')
-        .custom((value, { req }) => {
-            let imageFile = req.file;
-            let extensions = ['.jpg', '.png'];
-            let extensionFile = path.extname(req.file.originalname);
-
-            if (!extensions.includes(extensionFile)) {
-                throw new Error('Las extensiones permitidas son ' + extensions.join(', '));
-            }
-
-            return true;
-        })
+        .notEmpty().withMessage('Complete your password')
+        .isLength({ min: 8 }).withMessage('Your password must have at least 8 characters'),
 ]
 
 module.exports = validateRegister;

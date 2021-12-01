@@ -1,3 +1,10 @@
+@import "colors.css";
+@import "register.css";
+@import "login.css";
+
+body {
+  font-family: Barlow, sans-serif;
+}
 /* START MAIN INDEX */
 .body__index {
   background-image: url(/img/background-img.jpg);
@@ -8,13 +15,6 @@
   height: auto;
   margin: auto;
   background-color: #fff;
-}
-
-/* LOGO */
-.logo {
-  width: 10%;
-  display: flex;
-  justify-content: left;
 }
 
 /* BEST SELLER CONTENT */
@@ -40,7 +40,7 @@
   align-items: center;
 }
 .card__item {
-  width: 120vw;
+  width: 70vw;
   background-color: #ddd;
   border-radius: 7px;
   box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
@@ -70,37 +70,36 @@
   border-width: 18px;
   width: 0;
   height: 0;
-
 }
-.triangulo>div {
+.triangulo > div {
   border-style: solid;
   border-width: 10px;
   width: 0;
   height: 0;
-  position:relative;
+  position: relative;
 }
 
-.nav-text{
-  color:red;
+.nav-text {
+  color: red;
   font-weight: bold;
 }
 
-.triangulo.derecha{
+.triangulo.derecha {
   border-color: transparent transparent transparent #e30428;
 }
-.triangulo.derecha>div {
+.triangulo.derecha > div {
   border-color: transparent transparent transparent white;
-  top:-10px;
-  left:-21px;
+  top: -10px;
+  left: -21px;
 }
 
-.triangulo.izquierda{
+.triangulo.izquierda {
   border-color: transparent #e30428 transparent transparent;
 }
-.triangulo.izquierda>div {
+.triangulo.izquierda > div {
   border-color: transparent white transparent transparent;
-  top:-10px;
-  left:1px;
+  top: -10px;
+  left: 1px;
 }
 
 /* ENDS CARDS */
@@ -124,6 +123,7 @@
     flex-flow: row nowrap;
   }
   .card__item {
+    width: 30vw;
     height: 180px;
   }
   .card__img {
@@ -153,7 +153,6 @@
     padding: 10px 20px;
     text-align: left;
     background-color: var(--red);
-
   }
   .card__item {
     height: 360px;
@@ -164,7 +163,6 @@
     transform: scale(1.1);
     transition: 0.5s ease;
     box-shadow: 10px 10px 8px 0px rgba(50, 50, 50, 0.75);
-
   }
   /* ENDS HOVER EFFECT IMG*/
   .card__img {

@@ -11,14 +11,17 @@ const validateLogin = require('../middleware/loginValidator')
 // Call guestMiddleware to check if user is already registered
 const guestMiddleware = require('../middleware/guestMiddleware');
 const authMiddleware = require('../middleware/authMiddleware');
+
+// Call multer middleware to upload user avatar image
 const uploadAvatar = require('../middleware/multer');
 
-// Cart Details Route
-router.get('/cart', authMiddleware, usersController.cart);
+// Register Route
+router.get('/register', guestMiddleware, usersController.register);
+
+router.post('/createuser', uploadAvatar.single('userimage'), validateRegister, usersController.createUser);
 
 // Login Route
 router.get('/login', guestMiddleware, usersController.login);
-
 
 // Procesar el login
 router.post('/login', validateLogin, usersController.loginProcess);
@@ -29,10 +32,7 @@ router.get('/logout', usersController.logout);
 // Perfil de Usuario
 router.get('/profile', authMiddleware, usersController.profile);
 
-
-// Register Route
-router.get('/register', guestMiddleware, usersController.register);
-
-router.post('/createuser', uploadAvatar.single('userimage'), validateRegister, usersController.createUser);
+// Cart Details Route
+router.get('/cart', authMiddleware, usersController.cart);
 
 module.exports = router;

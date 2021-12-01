@@ -19,16 +19,36 @@ catch (err) {
 
 // User Schema    
 const UserSchema = require('../models/userSchema');
-const User = UserSchema(sequelize, Sequelize, DataTypes);
+const User = UserSchema(sequelize, DataTypes);
 
 // Game Schema 
-//const GameSchema = require('../models/gameSchema');
-//const Game = GameSchema(sequelize, Sequelize, DataTypes);
+const GameSchema = require('../models/gameSchema');
+const Game = GameSchema(sequelize, DataTypes);
+
+const GameCategorySchema = require('../models/gameCategorySchema');
+const GameCategory = GameCategorySchema(sequelize, DataTypes);
+
+const GamePlatformSchema = require('../models/GamePlatformSchema');
+const GamePlatform = GamePlatformSchema(sequelize, DataTypes);
+
+
+// Relationship Schema
+// Games have one Category and Category have multiple games
+GameCategory.hasMany(Game);
+Game.belongsTo(GameCategory);
+
+GamePlatform.hasMany(Game);
+Game.belongsTo(GamePlatform);
+
 
 // Synchornize only for create new tables
-sequelize.sync({ alter: true })
-    .then(() => { console.log('Tables Users and Games synchronized to dababase'); })
-    .catch(error => { conso.log(error); });
+try {
+    sequelize.sync();
+    console.log('Tables Users and Games synchronized to dababase');
+}
+catch (err) {
+    throw new Error('Unable to sync tables: Error => ', err);
+}
 
 
-module.exports = { User }
+module.exports = { User, Game, GameCategory, GamePlatform }

@@ -30,7 +30,7 @@ const controller = {
             }
             try {
                 await User.create(newUser);
-                res.redirect('/login');
+                res.redirect('/user/login');
             }
             catch (err) {
                 throw new Error('Create New User: Error => ' + err);
@@ -90,7 +90,7 @@ const controller = {
                 throw new Error('Can not log out User: Error => ' + err);
             }
         });
-        res.clearCookie('connect.sid').redirect('/');
+        res.clearCookie('areshop-sid').redirect('/');
     },
     profile: (req, res) => {
         return res.render('users/userProfile', {

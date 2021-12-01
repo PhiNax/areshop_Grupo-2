@@ -18,6 +18,7 @@ const userLoggedMiddleware = require('./middleware/userLoggedMiddleware');
 const mainRouter = require('./routes/mainRoutes');
 const productsRouter = require('./routes/productsRoutes');
 const usersRouter = require('./routes/usersRoutes');
+const adminRouter = require('./routes/adminRoutes');
 
 // Call override method
 const methodOverride = require('method-override');
@@ -50,6 +51,7 @@ app.use(methodOverride('_method')); // method="POST" on form to use PUT y DELETE
 // Set app to use express session
 app.use(session({
     secret: 'A la grande le puse cuca',
+    name: 'areshop-sid',
     resave: false,
     saveUninitialized: false,
     cookie: { maxAge: 60000 }
@@ -57,14 +59,14 @@ app.use(session({
 app.use(cookies());
 app.use(userLoggedMiddleware);
 
-// Use Routes
-
 // Main Routes
 app.use('/', mainRouter);
 // Users Routers
-app.use('/', usersRouter);
-// Products Routers for Admins
+app.use('/user', usersRouter);
+// Products Routers for users
 app.use('/products', productsRouter);
+// Products Routers for Admins
+app.use('/admin', adminRouter);
 // 404 Routes
 app.use((req, res, next) => {
     res.status(404).render('404-not-found');

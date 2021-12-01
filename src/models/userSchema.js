@@ -1,9 +1,9 @@
-module.exports = (sequelize, Sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => {
     return sequelize.define('user', {
 
         id: {
             type: DataTypes.UUID,
-            defaultValue: Sequelize.UUIDV4,
+            defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
         },
         name: {
@@ -12,7 +12,8 @@ module.exports = (sequelize, Sequelize, DataTypes) => {
         },
         nickname: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         email: {
             type: DataTypes.STRING,
@@ -25,7 +26,6 @@ module.exports = (sequelize, Sequelize, DataTypes) => {
         },
         avatar: {
             type: DataTypes.STRING,
-            allowNull: false,
             defaultValue: 'avatar.png'
         },
         access: {

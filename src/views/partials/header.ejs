@@ -1,9 +1,36 @@
 <header>
   <nav class="navbar">
     <img src="/img/areshop_logo2.svg" class="logo" />
+
+    <nav class="nav__categories">
+      <ul>
+        <li>
+          <a class="nav__categories__links">Categories</a>
+        </li>
+        <li>
+          <a class="nav__categories__links">Pc</a>
+        </li>
+        <li>
+          <a class="nav__categories__links">PS4</a>
+        </li>
+        <li>
+          <a class="nav__categories__links">PS5</a>
+        </li>
+        <li>
+          <a class="nav__categories__links">Xbox</a>
+        </li>
+        <li>
+          <a class="nav__categories__links">Wii U</a>
+        </li>
+        <li>
+          <a class="nav__categories__links">Switch</a>
+        </li>
+      </ul>
+    </nav>
+
     <div class="search">
       <form action="/search" method="POST">
-        <input class="search-input" id="search" type="text" placeholder="Buscá tu producto" submit="search" />
+        <input class="search-input" id="search" type="text" placeholder="Search games" submit="search" />
         <i class="search-icon fas fa-search"></i>
       </form>
     </div>
@@ -11,57 +38,34 @@
     <ul class="main-nav" id="js-menu">
       <% if (locals.isLogged) { %>
         <li>
-          <a href="/cart" class="nav-links">
+          <a href="/user/cart" class="nav-links">
             <i class="fas fa-shopping-cart"></i>
           </a>
         </li>
         <li>
-          <a href="/profile">My profile</a>
+          <a href="/user/profile">My profile</a>
         </li>
         <li>
-          <a href="/logout" class="nav-links">
-            <span class="nav-text"> Log Out</span>
+          <a href="/user/logout" class="nav-links">
+            <span class="nav-text">Log Out</span>
             <i class="fas fa-sign-in-alt"></i>
           </a>
         </li>
         <% } else { %>
           <li>
-            <a href="/register" class="nav-links">
+            <a href="/user/register" class="nav-links">
+              <span class="nav-text">Sing Up</span>
               <i class="fas fa-user-plus"></i>
             </a>
           </li>
           <li>
-            <a href="/login" class="nav-links">
-              <span class="nav-text"> Sign In</span>
+            <a href="/user/login" class="nav-links">
+              <span class="nav-text">Sign In</span>
               <i class="fas fa-sign-in-alt"></i>
             </a>
           </li>
           <% } %>
     </ul>
   </nav>
-  <nav class="nav__categories">
-    <ul>
-      <li>
-        <a class="nav__categories__links"> Categorias </a>
-      </li>
-      <li>
-        <a class="nav__categories__links"> Pc </a>
-      </li>
-      <li>
-        <a class="nav__categories__links"> PS4 </a>
-      </li>
-      <li>
-        <a class="nav__categories__links"> PS5 </a>
-      </li>
-      <li>
-        <a class="nav__categories__links"> Xbox </a>
-      </li>
-      <li>
-        <a class="nav__categories__links"> Wii U </a>
-      </li>
-      <li>
-        <a class="nav__categories__links"> Switch </a>
-      </li>
-    </ul>
-  </nav>
+
 </header>
