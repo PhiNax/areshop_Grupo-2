@@ -2,6 +2,10 @@ const { Op } = require('sequelize');
 const { Game } = require('../database/connectDB');
 const { GameCategory } = require('../database/connectDB');
 const { GamePlatform } = require('../database/connectDB');
+const { User } = require('../database/connectDB');
+
+// Call Bcrypt for encrypt passwords
+const bcrypt = require('bcryptjs');
 
 const controller = {
 
@@ -102,7 +106,7 @@ const controller = {
                 rating: updateGame.rating,
                 price: updateGame.price,
                 gamecategoryId: updateGame.category,
-                gameplatformId: updateGame.platform,
+                gameplatformId: updateGame.platform
             }, {
                 where: {
                     id: id
@@ -112,7 +116,7 @@ const controller = {
             res.redirect('/admin');
         }
         catch (err) {
-            throw new Error('Admin: Update New Game on DB Error => ' + err);
+            throw new Error('Admin: Update Game on DB Error => ' + err);
         }
     },
     // Delete - Delete one product from DB
@@ -130,6 +134,89 @@ const controller = {
         }
         catch (err) {
             throw new Error('Admin: Delete Game on DB Error => ' + err);
+        }
+    },
+
+
+    /* USERS CONTROLLER */
+    userList: async (req, res) => {
+        try {
+            const user = await User.findAll({});
+            res.render('admin/userList', { user });
+        }
+        catch (err) {
+            throw new Error('Admin: List Users on DB Error => ' + err);
+        }
+    },
+    userCreate: (req, res) => {
+        res.render('admin/userCreate');
+    },
+    userStore: async (req, res) => {
+        console.log(req.body)
+        let passCrypt = await bcrypt.hash(req.body.password, 10);
+
+        const newUser = {
+            name: req.body.name,
+            nickname: req.body.nickname,
+            email: req.body.email,
+            password: passCrypt,
+
+        };
+        try {
+            await User.create(newUser);
+            /*const createdUser = await User.findOne({ where: { email: newUser.email } })*/
+
+            // Render to the new game created page by ID
+            res.render('admin/user');
+        }
+        catch (err) {
+            throw new Error('Admin: Create Users on DB Error => ' + err);
+        }
+    },
+    userGetEdit: async (req, res) => {
+        const id = req.params.id;
+
+        try {
+            const user = await User.findOne({
+                where: {
+                    id: id
+                }
+            });
+            res.render('admin/userEdit', { user });
+
+        }
+        catch (err) {
+            throw new Error('Admin: GetEdit Users on DB Error => ' + err);
+        }
+    },
+    userUpdate: async (req, res) => {
+        const id = req.params.id;
+
+        // updateGame catch data from game edit form
+        const updateUser = {
+            name: req.body.name,
+            nickname: req.body.nickname,
+
+            access: req.body.access
+        };
+        try {
+            await User.update({
+                name: updateUser.name,
+                nickname: updateUser.nickname,
+                email: updateUser.email,
+
+                access: updateUser.access
+            }, {
+                where: {
+                    id: id
+                }
+            });
+            const user = await User.findAll({})
+            // TODO: Render created Product by ID
+            res.render('admin/userList', { user });
+        }
+        catch (err) {
+            throw new Error('Admin: Update User on DB Error => ' + err);
         }
     }
 }
