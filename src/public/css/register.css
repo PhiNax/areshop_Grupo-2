@@ -1,15 +1,16 @@
-/* START MAIN REGISTER */
 .body__register {
-  background-color: #fff;
+  background-color: var(--white);
 }
-
 .main__register {
   width: 100vw;
   height: auto;
   margin: auto;
+  background-color: var(--white);
 }
 
-.registro-form {
+.register-form {
+  display: flex;
+  flex-direction: column;
   width: 80%;
   font-size: 14px;
   height: auto;
@@ -25,12 +26,10 @@
     0 0.25rem 0.53125rem rgb(90 97 105 / 12%),
     0 0.125rem 0.1875rem rgb(90 97 105 / 10%);
 }
-
-.titulo-registro {
+.form-title {
   text-align: center;
   font-size: 30px;
 }
-
 .form__errors {
   background-color: #f8d7da;
   border-color: #f5c2c7;
@@ -46,56 +45,41 @@
   font-size: 1rem;
   padding-right: 0.5rem;
 }
-.registro-form div {
-  margin: 25px 0px;
+.register-form div {
+  margin: 7px 0px;
 }
-
-.registro-form div input {
-  width: 100%;
-  border: 1px solid rgb(130, 130, 130);
+.register-form div input {
+  width: 95%;
+  border: 1px solid #828282;
   border-radius: 10px;
   padding: 15px 0px 15px 15px;
   font-size: 14px;
   margin-top: 0.3em;
 }
-
 .form__label {
-  text-transform: uppercase;
   font-size: 1rem;
   padding: 0.5em;
 }
-
-.registro-form button {
-  background-color: #000;
-  color: #fff;
+.register-form button {
+  align-self: center;
+  background-color: var(--black);
+  color: var(--white);
   width: 30%;
   height: 30px;
+  margin-top: 0.7em;
   border: none;
   border-radius: 7px;
 }
-
-.registro-form button:hover {
+.register-form button:hover {
   background-color: var(--red);
 }
-/* END REGISTER */
 
 /* MEDIA QUERY*/
 @media screen and (min-width: 768px) {
-  /* START MAIN REGISTER */
-  .main__register {
-    width: 100vw;
-  }
-  /* END MAIN REGISTER*/
 }
 @media screen and (min-width: 1200px) {
-  /* START REGISTER */
-  .main__register {
-    width: 80vw;
-    height: auto;
-    margin: auto;
-  }
-  .registro-form {
-    width: 60%;
-    /* END REGISTER */
+  .register-form {
+    width: 30vw;
+    margin: 5rem auto;
   }
 }

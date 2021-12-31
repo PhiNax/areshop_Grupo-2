@@ -1,11 +1,12 @@
 <div class="card__item">
   <div class="card__img">
-    <a href="/products/<%= products.id %>">
-      <img src="/img/products/<%= products.image %>" alt="" />
+    <a href="/products/<%= game.id %>">
+      <img src="/img/products/cover/<%= game.coverImage %>" alt="" />
     </a>
   </div>
   <div class="card__content">
-    <div class="card__title"><%= products.name %></div>
+    <div class="card__title">
+      <%= game.name %>
+    </div>
   </div>
 </div>
-

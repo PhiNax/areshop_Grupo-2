@@ -1,36 +1,24 @@
-// Call FileSystem module
-const fs = require('fs');
-// Call Path module
-const path = require('path');
-
-const productsFilePath = path.join(__dirname, '../database/products.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+// Call Games DataBase Table (MySQL)
+const { Game } = require('../database/connectDB');
 
 const controller = {
-    // Index
-    index: (req, res) => {
-        res.render('index', { products });
+    // Index Show all games
+    index: async (req, res) => {
+        const game = await Game.findAll({});
+        res.render('index', { game });
     },
 
-    // Detail from one product
-    detail: (req, res) => {
-        res.render('productdetail');
-    },
+    // Detail for one product
+    detail: async (req, res) => {
+        const gameId = req.params.id
 
-    // Cart
-    cart: (req, res) => {
-        res.render('users/cart');
+        const game = await Game.findAll({
+            where: {
+                id: gameId
+            }
+        });
 
-    },
-
-    // Login
-    login: (req, res) => {
-        res.render('users/login');
-    },
-
-    // Register
-    register: (req, res) => {
-        res.render('users/register');
+        res.render('products/productsDetails', { game });
     }
 };
 
