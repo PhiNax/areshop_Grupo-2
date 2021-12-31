@@ -15,29 +15,30 @@
             <i class="fas fa-shopping-cart"></i>
           </a>
         </li>
-        <li >
-            <a  href="/profile">My profile</a>
-          </li>
-            <a href="/logout" class="nav-links">
-              <span class="nav-text"> Log Out</span>
-              <i class="fas fa-sign-in-alt"></i>
-            </a>
-          </li>
-          </ul>
-        </li>
-      <% } else { %>
         <li>
-          <a href="/register" class="nav-links">
-            <i class="fas fa-user-plus"></i>
-          </a>
+          <a href="/profile" nclass="nav-links">
+            <img src="/img/usersAvatars/<%= locals.userLogged.userImage %> " width="35" style="border-radius: 100%;">
         </li>
-          <a href="/login" class="nav-links">
-            <span class="nav-text"> Sign In</span>
-            <i class="fas fa-sign-in-alt"></i>
-          </a>
+        <a href="/logout" class="nav-links">
+          <span class="nav-text"> Log Out</span>
+          <i class="fas fa-sign-in-alt"></i>
+        </a>
         </li>
-      <% } %>
     </ul>
+    </li>
+    <% } else { %>
+      <li>
+        <a href="/register" class="nav-links">
+          <i class="fas fa-user-plus"></i>
+        </a>
+      </li>
+      <a href="/login" class="nav-links">
+        <span class="nav-text"> Sign In</span>
+        <i class="fas fa-sign-in-alt"></i>
+      </a>
+      </li>
+      <% } %>
+        </ul>
   </nav>
   <nav class="nav__categories">
     <ul>

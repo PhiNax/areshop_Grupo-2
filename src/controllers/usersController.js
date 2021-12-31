@@ -37,14 +37,15 @@ const controller = {
                 nickname: req.body.nickname,
                 email: req.body.email,
                 password: passCrypt,
-                userImage: req.file.filename,
+                if (userImage) {req.file.filename}
+                
             }
             console.log(newUser);
             try {
                 users.push(newUser);
                 fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 4), { encoding: "utf-8" });
                 req.session.userLogged = newUser.email;
-                res.redirect('/');
+                res.redirect('/login');
             }
             catch (err) {
                 throw new Error('Create New User: Error => ' + err);
@@ -58,7 +59,7 @@ const controller = {
     },
      // Login render login form
      login: (req, res) => {
-        res.render('user/login');
+        res.render('users/login');
     },
     loginProcess: (req, res) => {
 		let userToLogin = users.find(user => user.email == req.body.email);

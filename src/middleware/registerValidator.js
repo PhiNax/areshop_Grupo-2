@@ -47,9 +47,7 @@ const validateRegister = [
             let imageFile = req.file;
             let extensions = ['.jpg', '.png'];
 
-            if (!imageFile) {
-                throw new Error('Sube una imagen');
-            } else {
+            if (imageFile) { 
                 let extensionFile = path.extname(req.file.originalname);
 
                 if (!extensions.includes(extensionFile)) {
