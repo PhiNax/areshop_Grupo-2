@@ -4,15 +4,16 @@ const express = require('express');
 const path = require('path');
 // Call express session module
 const session = require('express-session');
+// Call Morgan module logger middleware
+const morgan = require('morgan');
 
-const cookies = require('cookie-parser');
 // Call dotenv module to protect environment variables   
 require('dotenv').config()
 // Connect to DB
 require('./database/connectDB');
 
-// Call middleware to check if there a users allready logged
-const userLoggedMiddleware = require('./middleware/userLoggedMiddleware');
+// Call middleware to check if there a users already logged
+// const adminMiddleware = require('./middleware/adminMiddleware');
 
 // Call routes
 const mainRouter = require('./routes/mainRoutes');
@@ -39,6 +40,9 @@ app.set('views', path.join(__dirname, './views'));
 // Set app to use public folder
 app.use(express.static(staticFolder));
 
+// Set up Morgan middleware
+app.use(morgan('dev'));
+
 // Set app to use encoded
 app.use(express.urlencoded({ extended: false }));
 
@@ -54,10 +58,10 @@ app.use(session({
     name: 'areshop-sid',
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 60000 }
+    cookie: { maxAge: 600000 }
 }));
-app.use(cookies());
-app.use(userLoggedMiddleware);
+
+// app.use(userLoggedMiddleware);
 
 // Main Routes
 app.use('/', mainRouter);

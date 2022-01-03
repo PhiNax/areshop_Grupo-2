@@ -3,41 +3,51 @@
 
 <%- include('../partials/head') -%>
 
-  <body class="body__register">
+  <body>
     <%- include('../partials/header') -%>
       <main class="main__register">
-
-        <form action="/user/createuser" method="POST" class="register-form" enctype="multipart/form-data">
-          <div class="form-title">Sing Up</div>
+        <div class="card__register">
+          <div class="form__title"><span>Create your Account</span>
+          </div>
           <% if (locals.errors) { %>
             <% for( let error in errors ) { %>
-              <p class="form__errors"><i class="fas fa-exclamation-triangle form__alert"></i>
+              <span class="form__errors"><i class="fas fa-exclamation-triangle form__alert"></i>
                 <%= errors[error].msg %>
-              </p>
+              </span>
               <% } %>
                 <% } %>
-                  <div>
-                    <label for="name" class="form__label">First Name</label>
-                    <input type="text" name="name" placeholder="Name" value="<%= locals.old && old.name %>">
+                  <form class="form__register" action="/user/register" method="POST">
+                    <div class="firstname">
+                      <label for="firstName">First Name</label>
+                      <input type="text" name="firstName" tabindex="13" value="<%= locals.old && old.firstName %>"
+                        autofocus />
+                    </div>
+                    <div class="lastname">
+                      <label for="lastName">Last Name</label>
+                      <input type="text" name="lastName" tabindex="14" value="<%= locals.old && old.lastName %>" />
+                    </div>
+                    <div class="email">
+                      <label for="email">Email</label>
+                      <input type="email" name="email" tabindex="15" value="<%= locals.old && old.email %>" />
+                    </div>
+                    <div class="password">
+                      <label for="password">Password</label>
+                      <input type="password" name="password" tabindex="16" />
+                    </div>
+                    <div class="form__terms">
+                      <input type="checkbox" id="terms" name="terms" value="accept" tabindex="17" />
+                      <label for="terms">I agree with the terms and conditions</label>
+                    </div>
+
+                    <button type="submit" class="button__register" tabindex="18">
+                      Register
+                    </button>
+                  </form>
+                  <div class="form__gologin">
+                    <span>Already Registered?</span>
+                    <a href="/user/login" tabindex="19">Login</a>
                   </div>
-                  <div>
-                    <label for="nickname" class="form__label">Nickname</label>
-                    <input type="text" name="nickname" placeholder="Nickname" value="<%= locals.old && old.nickname %>">
-                  </div>
-                  <div>
-                    <label for="email" class="form__label">Email</label>
-                    <input type="email" name="email" placeholder="Email" value="<%= locals.old && old.email %>">
-                  </div>
-                  <div>
-                    <label for="password" class="form__label">Password</label>
-                    <input type="password" name="password" placeholder="Password">
-                  </div>
-                  <div>
-                    <label for="userImage" class="form__label">Avatar</label>
-                    <input type="file" name="userimage">
-                  </div>
-                  <button type="submit" name="register">SING UP</button>
-        </form>
+        </div>
       </main>
       <%- include('../partials/footer') -%>
   </body>
