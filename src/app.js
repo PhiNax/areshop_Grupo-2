@@ -20,6 +20,8 @@ const mainRouter = require('./routes/mainRoutes');
 const productsRouter = require('./routes/productsRoutes');
 const usersRouter = require('./routes/usersRoutes');
 const adminRouter = require('./routes/adminRoutes');
+// Call API routes
+const apiRouter = require('./routes/apiRoutes');
 
 // Call override method
 const methodOverride = require('method-override');
@@ -61,8 +63,6 @@ app.use(session({
     cookie: { maxAge: 600000 }
 }));
 
-// app.use(userLoggedMiddleware);
-
 // Main Routes
 app.use('/', mainRouter);
 // Users Routers
@@ -71,11 +71,12 @@ app.use('/user', usersRouter);
 app.use('/products', productsRouter);
 // Products Routers for Admins
 app.use('/admin', adminRouter);
+// API Routes
+app.use('/api', apiRouter);
 // 404 Routes
 app.use((req, res, next) => {
     res.status(404).render('404-not-found');
 });
-
 // Config listening port
 app.listen(PORT, () => {
     console.log(`Server running on port: ${PORT}`);
