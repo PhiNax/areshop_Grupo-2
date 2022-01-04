@@ -34,7 +34,6 @@
               </span>
             </div>
 
-
             <div class="detail__description">
               <%= game.description %>
             </div>
@@ -69,13 +68,17 @@
 
         <div class="detail__images__carousel">
           <% game.gamescreenshots.forEach(function(element){ %>
-            <img src="<%= element.name %>" alt="<%= game.name %>" class="detail__miniImages" />
+            <a data-fancybox="gallery" data-src="<%= element.name %>" data-caption="<%= game.name %>">
+              <img src="<%= element.name %>" alt="<%= game.name %>" class="detail__miniImages" />
+            </a>
             <% }); %>
         </div>
 
       </main>
       <!-- START Footer Content -->
       <%- include('../partials/footer') -%>
+        <!-- Script Fancybox -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
   </body>
 
 </html>

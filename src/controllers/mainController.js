@@ -17,7 +17,13 @@ const controller = {
                 }
             });
 
-            res.render('index', { gamePc, gamePs4 });
+            const gamePs5 = await Game.findAll({
+                where: {
+                    gameplatformId: 3
+                }
+            });
+
+            res.render('index', { gamePc, gamePs4, gamePs5 });
         }
         catch (err) {
             throw new Error('List games for index: failed => ' + err);

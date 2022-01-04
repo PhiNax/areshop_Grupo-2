@@ -20,7 +20,7 @@ async function adminMiddleware(req, res, next) {
 		}
 	}
 
-	next(res.redirect('/404-not-found'));
+	next();
 
 }
 

@@ -21,7 +21,7 @@ body {
 }
 
 .main__index {
-  width: 100vw;
+  width: 100%;
   height: auto;
   margin: auto;
   background-color: var(--white);
@@ -66,7 +66,7 @@ body {
   align-items: center;
 }
 .card__item {
-  width: 70vw;
+  width: 70%;
   background-color: #ddd;
   border-radius: 7px;
   box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
@@ -141,7 +141,7 @@ body {
 @media screen and (min-width: 768px) {
   /* START MAIN INDEX */
   .main__index {
-    width: 100vw;
+    width: 100%;
   }
   .main__title {
     font-size: 1.3rem;
@@ -151,14 +151,15 @@ body {
   }
   .cards__container {
     display: flex;
-    justify-content: space-between;
-    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
   }
   .card__item {
-    width: 30vw;
+    width: 23%;
   }
   .card__img {
-    height: 110px;
+    height: 250px;
   }
   .card__item img {
     height: 100%;
@@ -214,8 +215,6 @@ body {
   /* START CARDS */
   .cards__container {
     justify-content: space-between;
-    flex-flow: row wrap;
-    align-items: center;
   }
   .card__item {
     flex: 0 0 250px;

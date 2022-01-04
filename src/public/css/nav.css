@@ -7,7 +7,6 @@
 .navbar__mobile {
   background: var(--whiteC);
   box-shadow: 0px -1px 3px 0px rgba(0, 0, 0, 0.75);
-  overflow: hidden;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -24,6 +23,38 @@
   color: #495057;
   padding: 10px 30px;
 }
+.navM__search {
+  display: none;
+  justify-content: center;
+  position: absolute;
+  width: 100vw;
+  padding: 10px 0;
+  top: -53px;
+  z-index: 99;
+  background-color: var(--whiteC);
+}
+.navM_search_show {
+  display: flex;
+}
+.search__input {
+  padding: 0.3rem;
+  font-size: 1.1rem;
+  line-height: 1.2;
+  color: #495057;
+  background-color: var(--whiteC);
+  background-clip: padding-box;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: 1px solid var(--blueC);
+}
+.search__button {
+  background: none;
+  border: none;
+  width: 30px;
+  color: var(--blueC);
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
 /* ENDS NAVBAR MOBILE */
 /* START SIDEBAR MOBILE */
 .sidebar {
@@ -38,6 +69,9 @@
   transition: ease 0.3s;
   padding-top: 60px;
 }
+.sidebar__transition {
+  width: 210px;
+}
 .sidebar__link {
   padding: 15px 8px 5px 30px;
   text-decoration: none;
@@ -51,13 +85,6 @@
 }
 .sidebar__img {
   padding: 13px;
-}
-.sidebar .closebtn {
-  position: absolute;
-  top: 10px;
-  font-size: 2rem;
-  left: 10px;
-  color: #fff;
 }
 /* ENDS SIDEBAR MOBILE */
 /* MEDIA QUERY*/
@@ -86,8 +113,8 @@
     justify-content: space-around;
     align-items: center;
     flex-flow: row wrap;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     margin: 0 auto;
     width: 100%;
   }
@@ -123,24 +150,8 @@
   .search {
     order: 2;
   }
-  .search__input {
-    padding: 0.3rem;
-    font-size: 1.1rem;
-    line-height: 1.2;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border-radius: 10px;
-    box-sizing: border-box;
-    border: 1px solid #ced4da;
-  }
   .search__button {
-    background: none;
-    border: none;
-    width: 30px;
     color: #fff;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
     cursor: pointer;
   }
   .search__button:hover {

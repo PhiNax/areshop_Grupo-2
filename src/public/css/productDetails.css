@@ -3,6 +3,7 @@
   background-color: #e6e8ea; /*#002650*/
 }
 .detail__background {
+  display: none;
   width: 100%;
 }
 .detail__background img {
@@ -27,13 +28,13 @@
   width: 100%;
 }
 .detail__images__carousel {
-  width: 90%;
+  width: 100%;
   display: flex;
-  gap: 3px;
-  margin: 20 auto;
+  flex-direction: column;
 }
 .detail__miniImages {
-  width: 30%;
+  cursor: pointer;
+  width: 100%;
 }
 .detail__details {
   display: flex;
@@ -62,6 +63,7 @@
   align-items: center;
   flex: 0 0 20%;
   padding: 20px;
+  gap: 25px;
 }
 .detail__icons {
   display: flex;
@@ -132,6 +134,10 @@
 /* END GAME DETAILS */
 /* MEDIA QUERY*/
 @media screen and (min-width: 768px) {
+  .detail__background {
+    display: block;
+    width: 100%;
+  }
   .detail__content {
     width: 90%;
     padding: 2rem;
@@ -144,16 +150,24 @@
   .detail__details {
     flex: 0 0 35%;
   }
+  .detail__title {
+    font-size: 2em;
+  }
   .detail__sale {
     flex: 0 0 30%;
     padding: 10px;
     gap: 20px;
   }
   .detail__images__carousel {
+    flex-direction: row;
+    gap: 3px;
     position: relative;
-    width: 95%;
+    width: 99%;
     top: -150px;
     margin: 0 auto;
+  }
+  .detail__miniImages {
+    height: 110px;
   }
   .detail__icons {
     gap: 25px;
@@ -184,6 +198,9 @@
   .detail__details {
     flex: 1 0 40%;
   }
+  .detail__title {
+    font-size: 2.5em;
+  }
   .detail__description {
     display: initial;
   }
@@ -200,6 +217,12 @@
     font-size: 1.5rem;
     width: 60%;
     padding: 15px;
+  }
+  .detail__images__carousel {
+    width: 90%;
+  }
+  .detail__miniImages {
+    height: 180px;
   }
   .secure__icons {
     font-size: 1rem;
