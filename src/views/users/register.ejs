@@ -5,8 +5,12 @@
 
   <body class="body__register">
     <%- include('../partials/header') -%>
+    <script src="/grupo_2_areshsop/src/Register.js"></script>
       <main class="main__register">
-
+        <div class="erroresRegister"> 
+          <ul>
+          </ul>
+        </div>
         <form action="/user/createuser" method="POST" class="register-form" enctype="multipart/form-data">
           <div class="form-title">Sing Up</div>
           <% if (locals.errors) { %>
@@ -17,19 +21,19 @@
               <% } %>
                 <% } %>
                   <div>
-                    <label for="name" class="form__label">First Name</label>
+                    <label for="name" class="form__label first-name">First Name</label>
                     <input type="text" name="name" placeholder="Name" value="<%= locals.old && old.name %>">
                   </div>
                   <div>
-                    <label for="nickname" class="form__label">Nickname</label>
+                    <label for="nickname" class="form__label nickName">Nickname</label>
                     <input type="text" name="nickname" placeholder="Nickname" value="<%= locals.old && old.nickname %>">
                   </div>
                   <div>
-                    <label for="email" class="form__label">Email</label>
+                    <label for="email" class="form__label registerEmail">Email</label>
                     <input type="email" name="email" placeholder="Email" value="<%= locals.old && old.email %>">
                   </div>
                   <div>
-                    <label for="password" class="form__label">Password</label>
+                    <label for="password" class="form__label registerPassword">Password</label>
                     <input type="password" name="password" placeholder="Password">
                   </div>
                   <div>

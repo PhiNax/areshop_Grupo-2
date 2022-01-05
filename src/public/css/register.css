@@ -83,3 +83,7 @@
     margin: 5rem auto;
   }
 }
+
+div.erroresRegister {
+  background-color: red;
+}

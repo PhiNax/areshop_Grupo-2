@@ -5,12 +5,16 @@
 
   <body class="body__login">
     <%- include('../partials/header') -%>
-
+    <script src="/grupo_2_areshsop/src/Login.js"></script>
       <main class="main__login">
+        <div class="erroresLogin"> 
+          <ul>
+          </ul>
+        </div>
         <form action="/user/login" method="POST" class="login-form">
           <div class="form-title">Sign In</div>
           <div>
-            <label for="email" class="form__label">Emil Address</label>
+            <label for="email" class="form__label emailValidation">Emil Address</label>
             <input type="email" name="email" placeholder="Email">
             <% if (locals.errors && errors.email) { %>
               <div>
@@ -19,7 +23,7 @@
               <% } %>
           </div>
           <div>
-            <label for="password" class="form__label">Password</label>
+            <label for="password" class="form__label passwordValidation">Password</label>
             <input type="password" name="password" placeholder="Password">
           </div>
 

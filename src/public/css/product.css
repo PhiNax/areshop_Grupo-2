@@ -195,3 +195,6 @@ img {
     max-height: 80%;
   }
 }
+div.producterrors {
+  background-color: red;
+}
