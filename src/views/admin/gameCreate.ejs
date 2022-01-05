@@ -6,19 +6,23 @@
   <body>
     <%- include('../partials/header') -%>
       <main class="main-form-create">
-
+        <script src="/grupo_2_areshsop/src/Products.js"></script>
+        <div class="producterrors"> 
+          <ul>
+          </ul>
+        </div>
         <form action="/admin/store" method="POST" class="form-create" enctype="multipart/form-data">
           <div class="form-create-title">CREATE A NEW GAME</div>
           <div>
-            <label for="name">Name:</label>
+            <label for="name" class="productName">Name:</label>
             <input type="text" name="name" />
           </div>
           <div>
-            <label for="description">Description:</label>
+            <label for="description" class="productDescription">Description:</label>
             <input type="text" name="description" />
           </div>
           <div>
-            <label for="coverImage">Cover Image:</label>
+            <label for="coverImage" class="coverImage">Cover Image:</label>
             <input type="file" name="coverImage" />
           </div>
           <div>
