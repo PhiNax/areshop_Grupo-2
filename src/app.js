@@ -30,7 +30,7 @@ const methodOverride = require('method-override');
 const app = express();
 
 // Create PORT variable with process.env
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 // Set public folder
 const staticFolder = path.resolve(__dirname, './public');
