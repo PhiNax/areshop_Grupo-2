@@ -96,6 +96,18 @@ body {
   padding: 10px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.card__addcart {
+  background-color: #0c4591;
+  border-color: transparent;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: #fff;
+  width: 30%;
+  padding: 5px;
+  box-shadow: 0 2px 6px #1f4d8a;
 }
 /* ENDS CARDS */
 
