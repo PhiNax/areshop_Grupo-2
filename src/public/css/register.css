@@ -1,24 +1,16 @@
-.body__register {
-  background-color: var(--white);
-}
 .main__register {
-  width: 100vw;
-  height: auto;
-  margin: auto;
-  background-color: var(--white);
+  width: 100%;
+  margin: 50px auto;
+  margin-bottom: 100px;
 }
-
-.register-form {
-  display: flex;
-  flex-direction: column;
+.card__register {
   width: 80%;
-  font-size: 14px;
   height: auto;
-  border-top: 2px solid #d10431;
+  border-top: 2px solid #09346c;
   background-color: #fff;
   border-radius: 10px;
   position: relative;
-  margin: 2rem auto;
+  margin: 0 auto;
   margin-bottom: 30px;
   padding: 20px;
   box-shadow: 0 0.46875rem 2.1875rem rgb(90 97 105 / 10%),
@@ -26,60 +18,141 @@
     0 0.25rem 0.53125rem rgb(90 97 105 / 12%),
     0 0.125rem 0.1875rem rgb(90 97 105 / 10%);
 }
-.form-title {
-  text-align: center;
-  font-size: 30px;
+.form__register {
+  display: flex;
+  flex-flow: row wrap;
+}
+.form__title {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
 }
 .form__errors {
+  display: block;
+  color: #842029;
   background-color: #f8d7da;
   border-color: #f5c2c7;
-  padding: 0.5rem;
   position: relative;
   padding: 1rem 1rem;
   margin-bottom: 1rem;
   border: 1px solid transparent;
-  border-radius: 0.25rem;
+  border-radius: 7px;
+  overflow: hidden;
+  animation: zoom-in 0.5s forwards;
 }
 .form__alert {
-  color: #ec0e0e;
-  font-size: 1rem;
-  padding-right: 0.5rem;
+  color: #cc091a;
 }
-.register-form div {
-  margin: 7px 0px;
-}
-.register-form div input {
-  width: 95%;
-  border: 1px solid #828282;
+.form__register input {
+  display: block;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  line-height: 1.2;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
   border-radius: 10px;
-  padding: 15px 0px 15px 15px;
-  font-size: 14px;
-  margin-top: 0.3em;
 }
-.form__label {
+.form__register label {
+  padding: 0.5rem;
+  font-weight: bold;
+}
+.firstname {
+  width: 100%;
+  margin-top: 8px;
+}
+.firstname input {
+  width: 100%;
+  margin-top: 5px;
+}
+.lastname {
+  width: 100%;
+  margin-top: 8px;
+}
+.lastname input {
+  width: 100%;
+  margin-top: 5px;
+}
+.email {
+  width: 100%;
+  margin-top: 8px;
+}
+.email input {
+  width: 100%;
+  margin-top: 5px;
+}
+.password {
+  width: 100%;
+  margin-top: 8px;
+}
+.password input {
+  width: 100%;
+  margin-top: 5px;
+}
+.passwordC {
+  width: 100%;
+  margin-top: 8px;
+}
+.passwordC input {
+  width: 100%;
+  margin-top: 5px;
+}
+.form__terms {
+  display: flex;
+  align-items: center;
+  padding: 10px;
   font-size: 1rem;
-  padding: 0.5em;
 }
-.register-form button {
-  align-self: center;
-  background-color: var(--black);
-  color: var(--white);
-  width: 30%;
-  height: 30px;
-  margin-top: 0.7em;
-  border: none;
-  border-radius: 7px;
+.button__register {
+  background-color: #0c4591;
+  border-color: transparent;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  color: #fff;
+  width: 100%;
+  padding: 15px;
+  box-shadow: 0 2px 6px #1f4d8a;
 }
-.register-form button:hover {
-  background-color: var(--red);
+.form__gologin {
+  padding: 30px 0 5px 15px;
+  display: flex;
+  justify-content: center;
+}
+.form__gologin a {
+  padding-left: 5px;
+  text-decoration: none;
+  color: #0c4591;
 }
 
 /* MEDIA QUERY*/
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 367px) {
+  .form__terms {
+    font-size: 0.8rem;
+  }
 }
+@media screen and (min-width: 768px) {
+  .card__register {
+    width: 50%;
+  }
+}
+
 @media screen and (min-width: 1200px) {
-  .register-form {
-    width: 30vw;
-    margin: 5rem auto;
+  .card__register {
+    width: 20%;
+  }
+}
+
+@keyframes zoom-in {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }

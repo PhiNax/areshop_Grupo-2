@@ -4,21 +4,30 @@ const { Game } = require('../database/connectDB');
 const controller = {
     // Index Show all games
     index: async (req, res) => {
-        const game = await Game.findAll({});
-        res.render('index', { game });
-    },
+        try {
+            const gamePc = await Game.findAll({
+                where: {
+                    gameplatformId: 1
+                }
+            });
 
-    // Detail for one product
-    detail: async (req, res) => {
-        const gameId = req.params.id
+            const gamePs4 = await Game.findAll({
+                where: {
+                    gameplatformId: 2
+                }
+            });
 
-        const game = await Game.findAll({
-            where: {
-                id: gameId
-            }
-        });
+            const gamePs5 = await Game.findAll({
+                where: {
+                    gameplatformId: 3
+                }
+            });
 
-        res.render('products/productsDetails', { game });
+            res.render('index', { gamePc, gamePs4, gamePs5 });
+        }
+        catch (err) {
+            throw new Error('List games for index: failed => ' + err);
+        }
     }
 };
 
