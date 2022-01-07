@@ -50,7 +50,7 @@ GameScreenshot.belongsTo(Game);
 // Synchornize only for create new tables
 try {
     sequelize.sync();
-    console.log('Tables Users and Games synchronized to dababase');
+    console.log('Tables synchronized to dababase');
 }
 catch (err) {
     throw new Error('Unable to sync tables: Error => ', err);
