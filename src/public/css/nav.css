@@ -188,10 +188,9 @@
 
   /* START USER DROPDOWN MENU */
   .nav__dropdown__content {
-    position: relative;
+    position: absolute;
+    top: 50px;
     display: none;
-    top: 55px;
-    right: 70px;
     background-color: #f9f9f9;
     min-width: 80px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -204,6 +203,7 @@
     display: block;
     color: black;
     padding: 12px 16px;
+    font-size: 0.9rem;
     text-decoration: none;
     text-align: left;
   }
