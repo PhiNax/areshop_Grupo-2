@@ -1,23 +1,16 @@
-.body__login {
-  background-color: var(--white);
-}
 .main__login {
-  width: 100vw;
-  height: auto;
-  margin: auto;
-  background-color: var(--white);
+  width: 100%;
+  margin: 50px auto;
+  margin-bottom: 100px;
 }
-.login-form {
-  display: flex;
-  flex-direction: column;
+.card__login {
   width: 80%;
-  font-size: 14px;
   height: auto;
-  border-top: 2px solid #d10431;
+  border-top: 2px solid #09346c;
   background-color: #fff;
   border-radius: 10px;
   position: relative;
-  margin: 2rem auto;
+  margin: 0 auto;
   margin-bottom: 30px;
   padding: 20px;
   box-shadow: 0 0.46875rem 2.1875rem rgb(90 97 105 / 10%),
@@ -25,37 +18,122 @@
     0 0.25rem 0.53125rem rgb(90 97 105 / 12%),
     0 0.125rem 0.1875rem rgb(90 97 105 / 10%);
 }
-.login-form div {
-  margin: 7px 0px;
+.form__title {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
 }
-.login-form div input {
-  width: 95%;
-  border: 1px solid #828282;
-  border-radius: 10px;
-  padding: 15px 0px 15px 15px;
-  font-size: 14px;
-  margin-top: 0.3em;
-}
-.login-form button {
-  align-self: center;
-  background-color: var(--black);
-  color: var(--white);
-  width: 30%;
-  height: 30px;
-  margin-top: 0.7em;
-  border: none;
+.form__errors {
+  display: block;
+  color: #842029;
+  background-color: #f8d7da;
+  border-color: #f5c2c7;
+  position: relative;
+  padding: 1rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
   border-radius: 7px;
+  overflow: hidden;
+  animation: zoom-in 0.5s forwards;
 }
-.login-form button:hover {
-  background-color: var(--red);
+.form__alert {
+  color: #cc091a;
+}
+.form__login {
+  display: flex;
+  flex-flow: row wrap;
+}
+.form__login input {
+  display: block;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  line-height: 1.2;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 10px;
+}
+.form__login label {
+  padding: 0.5rem;
+  font-weight: bold;
+}
+.email {
+  width: 100%;
+  margin-top: 8px;
+}
+.email input {
+  width: 100%;
+  margin-top: 5px;
+}
+.password {
+  width: 100%;
+  margin-top: 8px;
+  display: flex;
+  flex-flow: row wrap;
+}
+.label-password {
+  flex: 1;
+}
+.forgot-password {
+  flex: 0 auto;
+}
+.password input {
+  width: 100%;
+  margin-top: 5px;
+}
+.login__forgot {
+  align-self: center;
+  padding-right: 0.5rem;
+}
+.form__remember {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+}
+.button__login {
+  background-color: #0c4591;
+  border-color: transparent;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  color: #fff;
+  width: 100%;
+  padding: 15px;
+  box-shadow: 0 2px 6px #1f4d8a;
+}
+.form__goreg {
+  padding: 30px 0 5px 15px;
+  display: flex;
+  justify-content: center;
+}
+.form__goreg a {
+  padding-left: 5px;
+  text-decoration: none;
+  color: #0c4591;
 }
 
 /* MEDIA QUERY*/
 @media screen and (min-width: 768px) {
+  .card__login {
+    width: 50%;
+  }
 }
 @media screen and (min-width: 1200px) {
-  .login-form {
-    width: 30vw;
-    margin: 5rem auto;
+  .card__login {
+    width: 20%;
+  }
+}
+
+@keyframes zoom-in {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }

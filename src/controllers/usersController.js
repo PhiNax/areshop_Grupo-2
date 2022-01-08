@@ -51,7 +51,10 @@ const controller = {
 
             const email = req.body.email;
             const password = req.body.password;
-            // remember req.session.cookie.maxAge = 60000 * 600 * 24 * 7;
+
+            if (req.body.remember === 'remember') {
+                req.session.cookie.maxAge = 60000 * 600 * 24 * 7;
+            }
 
             try {
                 const userLogin = await User.findOne({
@@ -66,7 +69,7 @@ const controller = {
                         email: userLogin.email,
                         avatar: userLogin.avatar
                     };
-                    res.redirect('/');
+                    res.redirect('profile');
                 } else {
                     const errors = {
                         credentials: {
@@ -90,13 +93,12 @@ const controller = {
                 throw new Error('Can not log out User: Error => ' + err);
             }
         });
-        res.clearCookie('areshop-sid').redirect('/');
+        res.clearCookie('gameshop-sid').redirect('/');
     },
     profile: (req, res) => {
         return res.render('users/userProfile', {
             user: req.session.userLogged
         });
-
     }
 };
 

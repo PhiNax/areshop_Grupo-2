@@ -1,8 +1,5 @@
 const { Op } = require('sequelize');
-const { Game } = require('../database/connectDB');
-const { GameCategory } = require('../database/connectDB');
-const { GamePlatform } = require('../database/connectDB');
-const { User } = require('../database/connectDB');
+const { Game, GameCategory, GamePlatform, User } = require('../database/connectDB');
 
 // Call Bcrypt for encrypt passwords
 const bcrypt = require('bcryptjs');
@@ -22,7 +19,7 @@ const controller = {
     // Search Games
     search: async (req, res) => {
         const searchInput = req.body.search;
-        console.log(searchInput);
+
         try {
             const game = await Game.findAll({
                 include: [GameCategory, GamePlatform],

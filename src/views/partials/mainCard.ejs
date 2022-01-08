@@ -1,12 +1,16 @@
 <div class="card__item">
   <div class="card__img">
     <a href="/products/<%= game.id %>">
-      <img src="/img/products/cover/<%= game.coverImage %>" alt="" />
+      <img src="/img/products/cover/<%= game.coverImage %>" alt="<%= game.name %>" />
     </a>
   </div>
   <div class="card__content">
     <div class="card__title">
       <%= game.name %>
+    </div>
+    <div class="card__section">
+      <span>USD <%= game.price %></span>
+      <button class="card__addcart">ADD</button>
     </div>
   </div>
 </div>
