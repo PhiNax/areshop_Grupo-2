@@ -1,23 +1,26 @@
 // Call Games DataBase Table (MySQL)
-const { Game } = require('../database/connectDB');
+const { Game, GameCategory, GamePlatform } = require('../database/connectDB');
 
 const controller = {
     // Index Show all games
     index: async (req, res) => {
         try {
             const gamePc = await Game.findAll({
+                include: [GameCategory, GamePlatform],
                 where: {
                     gameplatformId: 1
                 }
             });
 
             const gamePs4 = await Game.findAll({
+                include: [GameCategory, GamePlatform],
                 where: {
                     gameplatformId: 2
                 }
             });
 
             const gamePs5 = await Game.findAll({
+                include: [GameCategory, GamePlatform],
                 where: {
                     gameplatformId: 3
                 }

@@ -12,9 +12,6 @@ require('dotenv').config()
 // Connect to DB
 require('./database/connectDB');
 
-// Call middleware to check if there a users already logged
-// const adminMiddleware = require('./middleware/adminMiddleware');
-
 // Call routes
 const mainRouter = require('./routes/mainRoutes');
 const productsRouter = require('./routes/productsRoutes');

@@ -90,6 +90,11 @@ body {
   text-align: center;
   padding: 10px;
 }
+.card__section__info {
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 5px;
+}
 .card__section {
   font-size: 1.1rem;
   text-align: center;

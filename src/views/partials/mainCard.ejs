@@ -8,6 +8,12 @@
     <div class="card__title">
       <%= game.name %>
     </div>
+    <div class="card__section__info">
+      <span>
+        <%= game.gameplatform.name %>
+          <%= game.gamecategory.name %> game
+      </span>
+    </div>
     <div class="card__section">
       <span>USD <%= game.price %></span>
       <button class="card__addcart">ADD</button>

@@ -23,13 +23,13 @@ const controller = {
     platform: async (req, res) => {
         try {
             const game = await Game.findAll({
-                include: [{
-                    model: GamePlatform,
-                    where: {
-                        name: req.params.name
-                    }
-                }],
-
+                include: [GameCategory, GamePlatform,
+                    {
+                        model: GamePlatform,
+                        where: {
+                            name: req.params.name
+                        }
+                    }],
             });
             res.render('products/productsList', { game });
         }
@@ -42,6 +42,7 @@ const controller = {
         const searchInput = req.body.search;
         try {
             const game = await Game.findAll({
+                include: [GameCategory, GamePlatform],
                 where: {
                     name: {
                         [Op.like]: `%${searchInput}%`
