@@ -96,9 +96,7 @@ const controller = {
         res.clearCookie('gameshop-sid').redirect('/');
     },
     profile: (req, res) => {
-        return res.render('users/userProfile', {
-            user: req.session.userLogged
-        });
+        return res.render('users/userProfile', { user: req.session.userLogged });
     }
 };
 
