@@ -12,16 +12,19 @@ async function adminMiddleware(req, res, next) {
 				}
 			});
 			if (user.access === 0) {
-				return res.render('admin');
+				next();
+			}
+			else {
+				res.redirect('/');
 			}
 		}
 		catch (err) {
 			throw new Error('Find user admmin: failed =>' + err.message);
 		}
 	}
-
-	next();
-
+	else {
+		res.redirect('/');
+	}
 }
 
 module.exports = adminMiddleware;
