@@ -9,11 +9,9 @@
 
 			<!-- Container -->
 			<main>
-
+				<div><span>Hi <%= user.name %>, welcome back! 👋</span></div>
 				<div class="profile__card">
-
-					<div class="profile__header">
-					</div>
+					<div class="profile__header"></div>
 
 					<div class="profile__content">
 						<div class="profile__avatar">
@@ -21,14 +19,14 @@
 						</div>
 
 						<div class="profile__data">
-
-							<input type="text" name="" id="" value="<%= user.name %>" disabled>
-							<input type="email" name="" id="" value="<%= user.email %>" disabled>
-
+							<div class="profile__row">
+								<%= user.name %>
+							</div>
+							<div class="profile__row">
+								<%= user.email %>
+							</div>
 						</div>
-
 					</div>
-
 				</div>
 
 				<%- include('../partials/footer'); %>

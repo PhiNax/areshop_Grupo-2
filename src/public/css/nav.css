@@ -163,6 +163,8 @@
     list-style-type: none;
     padding: 0;
     order: 3;
+    gap: 3px;
+    margin: 0;
   }
   .main__nav__li {
     padding: 0 10px;
@@ -175,12 +177,13 @@
     display: block;
     position: relative;
     transition: all 0.3s ease;
+    padding-left: 7px;
   }
   .nav__links:hover {
     color: var(--blueC);
   }
   .nav__user__avatar {
-    width: 25px;
+    width: 34px;
   }
   .link__span {
     padding-left: 7px;
@@ -192,7 +195,7 @@
     top: 50px;
     display: none;
     background-color: #f9f9f9;
-    min-width: 80px;
+    min-width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 12;
   }
@@ -208,7 +211,7 @@
     text-align: left;
   }
   .nav__dropdown__content a:hover {
-    background-color: rgb(168, 167, 167);
+    background-color: var(--blueC);
     color: white;
   }
   .nav__dropdown__user {

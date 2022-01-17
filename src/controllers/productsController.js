@@ -14,7 +14,7 @@ const controller = {
                     id: gameId
                 }
             });
-            res.render('products/productsDetails', { game });
+            res.render('products/productsDetails', { game, user: req.session.userLogged });
         }
         catch (err) {
             throw new Error('List detail game: failed => ' + err);
@@ -31,7 +31,7 @@ const controller = {
                         }
                     }],
             });
-            res.render('products/productsList', { game });
+            res.render('products/productsList', { game, user: req.session.userLogged });
         }
         catch (err) {
             throw new Error('List games by platform: failed => ' + err);
@@ -49,7 +49,7 @@ const controller = {
                     }
                 }
             })
-            res.render('products/productsList', { game });
+            res.render('products/productsList', { game, user: req.session.userLogged });
         }
         catch (err) {
             throw new Error('Search games: failed => ' + err);

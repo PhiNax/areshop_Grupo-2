@@ -77,12 +77,12 @@
         <% } else { %>
           <li>
             <a href="/user/login" class="nav__links main__nav__li" tabindex="11">
-              <i class="far fa-user"><span class="link__span">Login</span></i>
+              <i class="far fa-user"></i><span class="link__span">SingIn</span>
             </a>
           </li>
           <li>
             <a href="/user/register" class="nav__links main__nav__li" tabindex="12">
-              <i class="fas fa-sign-in-alt"><span class="link__span">Register</span></i>
+              <i class="fas fa-sign-in-alt"></i><span class="link__span">SingUp</span>
             </a>
           </li>
           <% }%>
@@ -99,7 +99,7 @@
       </a>
       <div class="navM__search">
         <form action="/products/search/" method="POST">
-          <input type="search" name="search" class="search__input" id="search" placeholder="Search a game"
+          <input type="search" name="search" class="search__input" id="searchMobile" placeholder="Search a game"
             submit="search" tabindex="14" />
           <button class="search__button" type="submit" tabindex="15">
             <i class="search-icon fas fa-search"></i>

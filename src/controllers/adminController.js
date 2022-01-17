@@ -10,7 +10,7 @@ const controller = {
     list: async (req, res) => {
         try {
             const game = await Game.findAll({ include: [GameCategory, GamePlatform] });
-            res.render('admin/gamesList', { game });
+            res.render('admin/gamesList', { game, user: req.session.userLogged });
         }
         catch (err) {
             throw new Error('Admin: List all games: failed => ' + err);
@@ -30,7 +30,7 @@ const controller = {
                     }
                 }
             })
-            res.render('admin/gamesList', { game });
+            res.render('admin/gamesList', { game, user: req.session.userLogged });
         }
         catch (err) {
             throw new Error('Admin: Search games: failed => ' + err);
@@ -38,7 +38,7 @@ const controller = {
     },
     // Create - Form to create view
     create: (req, res) => {
-        res.render('admin/gameCreate');
+        res.render('admin/gameCreate', { user: req.session.userLogged });
     },
     // Create Method to store in DataBase
     store: async (req, res) => {
@@ -58,7 +58,7 @@ const controller = {
             const createdGame = await Game.findOne({ include: [GameCategory, GamePlatform], where: { name: newGame.name } })
 
             // Render to the new game created page by ID
-            res.render('products/productsDetail', { game: createdGame });
+            res.render('products/productsDetail', { game: createdGame, user: req.session.userLogged });
         }
         catch (err) {
             throw new Error('Admin: Create New Game Failed => ' + err);
@@ -75,7 +75,7 @@ const controller = {
                 }
             });
 
-            res.render('admin/gameEdit', { game });
+            res.render('admin/gameEdit', { game, user: req.session.userLogged });
         }
         catch (err) {
             throw new Error('Admin: Find Game By Id Error => ' + err);
@@ -110,7 +110,7 @@ const controller = {
                 }
             });
             // TODO: Render created Product by ID
-            res.redirect('/admin');
+            res.redirect('/admin', { user: req.session.userLogged });
         }
         catch (err) {
             throw new Error('Admin: Update Game on DB Error => ' + err);
@@ -127,7 +127,7 @@ const controller = {
                 }
             })
 
-            res.redirect('/admin');
+            res.redirect('/admin', { user: req.session.userLogged });
         }
         catch (err) {
             throw new Error('Admin: Delete Game on DB Error => ' + err);

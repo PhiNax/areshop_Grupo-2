@@ -34,3 +34,8 @@
   flex-direction: column;
   justify-content: center;
 }
+.profile__row {
+  width: 90%;
+  font-size: 2rem;
+  text-align: center;
+}

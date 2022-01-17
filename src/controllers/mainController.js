@@ -26,7 +26,7 @@ const controller = {
                 }
             });
 
-            res.render('index', { gamePc, gamePs4, gamePs5 });
+            res.render('index', { gamePc, gamePs4, gamePs5, user: req.session.userLogged } );
         }
         catch (err) {
             throw new Error('List games for index: failed => ' + err);
