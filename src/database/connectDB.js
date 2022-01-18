@@ -1,6 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
-const sequelize = new Sequelize(process.env.CLEARDB_DATABASE_URL)
+const sequelize = new Sequelize(process.env.CLEARDB_DATABASE_URL, {})
 
 try {
     sequelize.authenticate()
