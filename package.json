@@ -4,7 +4,7 @@
   "description": "Ecommerce de video juegos digitales",
   "main": "src/app.js",
   "scripts": {
-    "start": "nodemon ./src/app.js",
+    "start": "nodem ./src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "DEV": "nodemon ./src/app.js"
   },
