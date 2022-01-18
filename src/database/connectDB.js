@@ -1,6 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
-const sequelize = new Sequelize(process.env.CLEARDB_DATABASE_URL, {})
+const sequelize = new Sequelize('mysql://b42d41c3d4e63a:5a11a7ed@us-cdbr-east-05.cleardb.net/heroku_aabfdaf51e6d151?reconnect=true', {})
 
 try {
     sequelize.authenticate()
