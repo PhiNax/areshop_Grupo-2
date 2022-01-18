@@ -1,6 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
-const sequelize = new Sequelize('mysql://b42d41c3d4e63a:5a11a7ed@us-cdbr-east-05.cleardb.net/heroku_aabfdaf51e6d151?reconnect=true', {})
+const sequelize = new Sequelize('mysql://b42d41c3d4e63a:5a11a7ed@us-cdbr-east-05.cleardb.net/heroku_aabfdaf51e6d151', {})
 
 try {
     sequelize.authenticate()
