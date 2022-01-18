@@ -1,10 +1,16 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
-const sequelize = new Sequelize('mysql://b42d41c3d4e63a:5a11a7ed@us-cdbr-east-05.cleardb.net/heroku_aabfdaf51e6d151', {})
+const sequelize = new Sequelize(
+    'heroku_aabfdaf51e6d151',
+    'b42d41c3d4e63a',
+    '5a11a7ed',
+    {
+        host: 'us-cdbr-east-05.cleardb.net',
+        dialect: 'mysql'
+    })
 
 try {
     sequelize.authenticate()
-
     console.log('Connection has been established successfully.');
 }
 catch (err) {
