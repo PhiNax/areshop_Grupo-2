@@ -12,7 +12,6 @@ const sequelize = new Sequelize(
 try {
     sequelize.authenticate()
     console.log('Connection has been established successfully.');
-    console.log(sequelize)
 }
 catch (err) {
     throw new Error('Unable to connect to the database: Error => ', err);
@@ -29,10 +28,10 @@ const Game = GameSchema(sequelize, DataTypes);
 const GameCategorySchema = require('../models/gameCategorySchema');
 const GameCategory = GameCategorySchema(sequelize, DataTypes);
 // Game Platform Schema
-const GamePlatformSchema = require('../models/GamePlatformSchema');
+const GamePlatformSchema = require('../models/gamePlatformSchema');
 const GamePlatform = GamePlatformSchema(sequelize, DataTypes);
 // Game Screenshot Schema
-const GameScreenshotSchema = require('../models/GameScreenshotSchema');
+const GameScreenshotSchema = require('../models/gameScreenshotSchema');
 const GameScreenshot = GameScreenshotSchema(sequelize, DataTypes);
 
 // Relationship Schema
