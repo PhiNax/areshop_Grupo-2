@@ -1,11 +1,11 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
 const sequelize = new Sequelize(
-    'heroku_aabfdaf51e6d151',
-    'b42d41c3d4e63a',
-    '5a11a7ed',
+    DB_NAME,
+    DB_USER,
+    DB_PASS,
     {
-        host: 'us-cdbr-east-05.cleardb.net',
+        host: DB_HOST,
         dialect: 'mysql'
     })
 
