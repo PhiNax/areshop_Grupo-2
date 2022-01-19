@@ -75,6 +75,6 @@ app.use((req, res, next) => {
     res.status(404).render('404-not-found');
 });
 // Config listening port
-app.listen(process.env.PORT, () => {
+app.listen(PORT, () => {
     console.log(`Server running on port: ${PORT}`);
 })
