@@ -46,7 +46,7 @@ const controller = {
 
             const countByCategory = products.gamecategory
 
-            res.send(products);
+            res.send(count, products);
         }
         catch (err) {
             throw new Error('API: List products: failed => ' + err);
