@@ -7,6 +7,8 @@ const session = require('express-session');
 // Call Morgan module logger middleware
 const morgan = require('morgan');
 
+const cors = require('cors');
+
 // Call dotenv module to protect environment variables   
 require('dotenv').config()
 // Connect to DB
@@ -47,6 +49,8 @@ app.use(express.urlencoded({ extended: false }));
 
 // Set app to use json pharse
 app.use(express.json());
+
+app.use(cors({ origin: true }));
 
 // Set app to override method on form
 app.use(methodOverride('_method')); // method="POST" on form to use PUT y DELETE
