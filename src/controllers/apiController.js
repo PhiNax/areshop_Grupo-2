@@ -13,7 +13,7 @@ const controller = {
                             dataUser.push({ detail: 'http://localhost:3000/api/users/' + dataUser[i].id });
                         }
             */
-            const data = [count, dataUser,];
+            const data = [count, dataUser];
 
             res.send(data);
         }
@@ -44,9 +44,11 @@ const controller = {
 
             const count = { count: products.length };
 
-            const countByCategory = products.gamecategory
+            const countByCategory = products.gamecategory.length
 
-            res.send(count, products);
+            const data = [count, countByCategory, products];
+
+            res.send(data);
         }
         catch (err) {
             throw new Error('API: List products: failed => ' + err);
