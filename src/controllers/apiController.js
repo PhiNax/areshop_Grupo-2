@@ -44,7 +44,7 @@ const controller = {
 
             const count = { count: products.length };
 
-            const countByCategory = products.gamecategory.length
+            const countByCategory = products.gamecategory
 
             const data = [count, countByCategory, products];
 
