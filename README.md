@@ -19,21 +19,10 @@
 
 ```javascript
     const integrantes = require('integrantes');
-    
-    integrantes.Ignacio = 'Programador Full Stack, edad: 25, actualmente trabajando en Mercado Libre como Software Architect';
 
     integrantes.IgnacioMartin = 'Programador Full Stack';
 
     integrantes.JuanIgnacio = 'Programador Full Stack';
-```
-##
-
-### [Tablero de trabajo](https://areshsop.atlassian.net/jira/software/projects/SN/boards/2)
-
-```javascript
-    const jira = require('jira');
-    
-    jira.grupo2 = 'https://areshsop.atlassian.net/jira/software/projects/SN/boards/2';
 ```
 ##
 
